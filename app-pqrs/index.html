@@ -4,26 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Componets</title>
 
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title>Login</title>
 </head>
 
 <body>
-  <div class="wrapper">
-    <div>
-      <app-list data-title="Lista de Usuarios" data-url="https://jsonplaceholder.typicode.com/users"
-        data-field="name"></app-list>
-    </div>
-    <div>
-      <app-list data-title="Lista de fotos" data-url="https://jsonplaceholder.typicode.com/photos?albumId=1"
-        data-field="thumbnailUrl" modePicture="true"></app-list>
-    </div>
-
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="spinner">Cargando...</div>
   </div>
+  <!-- Header -->
+  <header>
+    <h1>Login </h1>
+    <button class="toggle-button" id="toggle-button">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main content -->
+  <div class="login-container">
+    <form action="/login" method="POST">
+      <div class="validation-message" id="validation-message"></div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9_]{4,20}$"
+        title="Debe tener 4-20 caracteres, solo letras, números y guiones bajos" placeholder="Username" required>
 
-  <script src="./assets/js/main.js"></script>
+      <label for="password">Password:</label>
+      <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"
+        title="Debe tener al menos una letra minúscula, una letra mayúscula y un número" placeholder="Password"
+        name="password" required>
 
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  
+  <footer>
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+  </footer>
+
+  <!-- Include the main.js script   -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
