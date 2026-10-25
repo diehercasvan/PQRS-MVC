@@ -12,7 +12,7 @@ class PqrsModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['radicado','user_id','pqrs_type_id','pqrs_status_id','assigned_to','subject','description'];
+    protected $allowedFields    = ['tracking_number','user_id','pqrs_type_id','pqrs_status_id','assigned_to','subject','description'];
 
     protected bool $allowEmptyInserts = false;
 
