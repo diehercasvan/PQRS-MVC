@@ -12,7 +12,7 @@ class ModuleRoleUserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['module_id', 'role_id', 'user_id', 'permission_id'];
+    protected $allowedFields    = ['module_id','role_id','user_id','permission_id'];
 
     protected bool $allowEmptyInserts = false;
 

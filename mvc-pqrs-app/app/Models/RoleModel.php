@@ -6,18 +6,20 @@ use CodeIgniter\Model;
 
 class RoleModel extends Model
 {
-    protected $table            = 'roles';
+    protected $table            = 'role';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    //Retornar array para facilitar el JSON
+    protected $returnType       = 'array'; 
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    //Campos de la tabla 
+    protected $allowedFields    = ['name','description','is_active'];
 
     protected bool $allowEmptyInserts = false;
 
-    // Dates
-    protected $useTimestamps = false;
+    //Timestamps automatica
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

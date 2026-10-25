@@ -12,7 +12,7 @@ class ModuleModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'route', 'icon', 'description', 'is_active'];
+    protected $allowedFields    = ['name','route','icon','description','is_active'];
 
     protected bool $allowEmptyInserts = false;
 

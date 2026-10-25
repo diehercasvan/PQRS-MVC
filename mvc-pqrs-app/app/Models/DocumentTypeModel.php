@@ -4,15 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PermissionModel extends Model
+class DocumentTypeModel extends Model
 {
-    protected $table            = 'permission';
+    protected $table            = 'document_type';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['name','description'];
+
     protected bool $allowEmptyInserts = false;
 
     // Dates
