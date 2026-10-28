@@ -41,4 +41,20 @@ class RoleModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+     /**
+     * Retorna todos los roles activos e inactivos.
+     */
+    public function getAll()
+    {
+        return $this->orderBy('id', 'ASC')->findAll();
+    }
+
+    /**
+     * Retorna solo roles activos (útil para selects en el frontend).
+     */
+    public function getActive()
+    {
+        return $this->where('is_active', 1)->orderBy('name', 'ASC')->findAll();
+    }
 }

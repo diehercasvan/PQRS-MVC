@@ -4,8 +4,8 @@ namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
-use App\Models\UserStatusModel;
-helper('jwt'); // <-- Carga forzada del Helper
+use App\Libraries\JwtService;
+
 
 class AuthController extends BaseController
 {
@@ -13,6 +13,13 @@ class AuthController extends BaseController
      * POST /api/auth/login
      * Body: { "username": "admin", "password": "admin123" }
      */
+    protected JwtService $jwt;
+
+    public function __construct()
+    {
+        $this->jwt=new JwtService();
+    }
+
     public function login()
     {
         $input = $this->request->getJSON(true);
@@ -61,7 +68,7 @@ class AuthController extends BaseController
         $userModel->update($user['id'], ['last_login' => date('Y-m-d H:i:s')]);
 
         // 6. Generar el JWT
-        $token = generateJWT([
+        $token = $this->jwt->generate([
             'id'       => $user['id'],
             'username' => $user['username'],
             'email'    => $user['email']
@@ -86,7 +93,8 @@ class AuthController extends BaseController
      */
     public function me()
     {
-        $token = getBearerToken();
+        $token = $this->jwt->getBearerToken();
+
         if (!$token) {
             return $this->response->setStatusCode(401)->setJSON([
                 'status' => 'error',
@@ -94,7 +102,9 @@ class AuthController extends BaseController
             ]);
         }
 
-        $payload = validateJWT($token);
+        $payload = $this->jwt->validate($token);
+
+
         if (!$payload) {
             return $this->response->setStatusCode(401)->setJSON([
                 'status' => 'error',
