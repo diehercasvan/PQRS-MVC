@@ -39,4 +39,20 @@ class ModuleModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    /**
+     * Retorna todos los módulos.
+     */
+    public function getAll()
+    {
+        return $this->orderBy('id', 'ASC')->findAll();
+    }
+
+    /**
+     * Retorna solo módulos activos (útil para el menú del frontend).
+     */
+    public function getActive()
+    {
+        return $this->where('is_active', 1)->orderBy('name', 'ASC')->findAll();
+    }
 }

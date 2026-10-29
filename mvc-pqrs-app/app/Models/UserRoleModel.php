@@ -39,4 +39,13 @@ class UserRoleModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+     public function getRolesByUserId(int $userId)
+    {
+        return $this->select('role.id, role.name, role.description')
+                    ->join('role', 'role.id = user_role.role_id')
+                    ->where('user_role.user_id', $userId)
+                    ->where('user_role.status_id', 1)
+                    ->findAll();
+    }
 }

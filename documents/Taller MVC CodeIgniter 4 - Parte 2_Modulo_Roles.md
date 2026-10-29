@@ -329,7 +329,7 @@ Copia el token de la respuesta.
 | Campo   | Valor                                                                     |
 | ------- | ------------------------------------------------------------------------- |
 | Método | `POST`                                                                  |
-| URL     |  `http://localhost:8080/api/roles`                                      |
+| URL     | `http://localhost:8080/api/roles`                                       |
 | Headers | `Content-Type: application/json`<br />`Authorization: Bearer <token>` |
 
 Body:
@@ -403,8 +403,7 @@ Body:
 
 Haz cualquier petición a /api/roles sin el header Authorization. Debe devolver 401.
 
-**Paso 1.5: Checklist de Validación de Roles**
-□ Login devuelve token.
+**Paso 1.5: Checklist de Validación de Roles**□ Login devuelve token.
 □ POST /api/roles crea un rol (201).
 □ GET /api/roles lista todos los roles.
 □ GET /api/roles/{id} devuelve un rol específico.
