@@ -131,4 +131,38 @@ class AuthController extends BaseController
             ]
         ]);
     }
+        /**
+     * GET /api/auth/permissions
+     * Requiere: Header Authorization: Bearer <token>
+     * Devuelve los módulos y permisos del usuario autenticado.
+     */
+    public function permissions()
+    {
+        $token = $this->jwt->getBearerToken();
+
+        if (!$token) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'status' => 'error',
+                'message' => 'Token no proporcionado.'
+            ]);
+        }
+
+        $payload = $this->jwt->validate($token);
+
+        if (!$payload) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'status' => 'error',
+                'message' => 'Token inválido o expirado.'
+            ]);
+        }
+
+        $mruModel = new \App\Models\ModuleRoleUserModel();
+        $permissions = $mruModel->getPermissionsByUser((int) $payload['id']);
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Permisos obtenidos correctamente.',
+            'data' => $permissions
+        ]);
+    }
 }

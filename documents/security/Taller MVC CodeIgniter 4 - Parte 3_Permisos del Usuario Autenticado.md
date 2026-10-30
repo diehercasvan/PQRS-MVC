@@ -86,7 +86,7 @@ Abre **`app/Controllers/Auth/AuthController.php`** y agrega el método `permissi
 
 > ⚠️ **Importante:** Como este método está en el `AuthController`, que **no** usa el filtro `auth` (porque el login no requiere token), la validación del token se hace manualmente dentro del método. Esto es intencional: `login` es público, pero `me` y `permissions` requieren token.
 
-### Paso 6.3: Registrar la Rut
+### Paso 6.3: Registrar la Rutas
 
 Edita **`app/Config/Routes.php`** y agrega esta ruta dentro del grupo `api/auth`:
 
@@ -120,11 +120,11 @@ Copia el token de la respuesta.
 
 **B. Consultar permisos del usuario autenticad**
 
-| Campo   | Valor                                         |
-| ------- | --------------------------------------------- |
-| Método | `GET`                                       |
-| URL     | `http://localhost:8080/api/auth/permission` |
-| Headers | `Content-Type: application/json `           |
+| Campo   | Valor                                                              |
+| ------- | ------------------------------------------------------------------ |
+| Método | `GET`                                                            |
+| URL     | `http://localhost:8080/api/auth/permission`                      |
+| Headers | `Content-Type: application/json  Authorization: Bearer <token> ` |
 
 Body:
 

@@ -364,7 +364,7 @@ Resultado esperado (201):
 | Campo   | Valor                                                                     |
 | ------- | ------------------------------------------------------------------------- |
 | Método | `GET`                                                                   |
-| URL     | `http://localhost:8080/api/role`                                        |
+| URL     | `http://localhost:8080/api/roles`                                       |
 | Headers | `Content-Type: application/json`<br />`Authorization: Bearer <token>` |
 
 **D. Ver Rol por ID (GET)**
@@ -372,7 +372,7 @@ Resultado esperado (201):
 | Campo   | Valor                                                                     |
 | ------- | ------------------------------------------------------------------------- |
 | Método | `GET`                                                                   |
-| URL     | `http://localhost:8080/api/roles/`                                      |
+| URL     | `http://localhost:8080/api/roles/5`                                     |
 | Headers | `Content-Type: application/json`<br />`Authorization: Bearer <token>` |
 
 **E. Actualizar Rol (PUT)**
@@ -380,7 +380,7 @@ Resultado esperado (201):
 | Campo   | Valor                                                                     |
 | ------- | ------------------------------------------------------------------------- |
 | Método | `PUT`                                                                   |
-| URL     | `http://localhost:8080/api/roles/`                                      |
+| URL     | `http://localhost:8080/api/roles/5`                                     |
 | Headers | `Content-Type: application/json`<br />`Authorization: Bearer <token>` |
 
 Body:
@@ -395,8 +395,8 @@ Body:
 
 | Campo   | Valor                                                                     |
 | ------- | ------------------------------------------------------------------------- |
-| Método | `DELET`                                                                 |
-| URL     | `http://localhost:8080/api/roles/`                                      |
+| Método | `DELETE`                                                                |
+| URL     | `http://localhost:8080/api/roles/5`                                     |
 | Headers | `Content-Type: application/json`<br />`Authorization: Bearer <token>` |
 
 **G. Probar sin toke**
