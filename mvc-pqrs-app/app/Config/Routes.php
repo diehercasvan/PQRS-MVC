@@ -5,7 +5,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+// Ruta raíz: sirve el SPA (index.html)
+$routes->get('/', function () {
+    return file_get_contents(ROOTPATH . 'public/index.html');
+});
 
 // Rutas de Autenticación
 $routes->group('api/auth', ['namespace' => 'App\Controllers\Auth'], function ($routes) {
